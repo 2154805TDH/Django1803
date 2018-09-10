@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<form action="{% url 'Myapp:login' %}" method="post" style="text-align: center">
+    {% csrf_token %}
+    <input type="text" name="u_name" placeholder="用户名或手机号或邮箱">
+    <br>
+    <input type="password" name='pwd' placeholder="密码">
+    <br>
+    <input type="text" placeholder="验证码" name="verify_code">
+    <br>
+    <input type="submit" value="登录">
+    <br>
+    <img src="/Myapp/verify_img" alt="" onclick="this.src='/Myapp/verify_img?'+ Math.random()">
+</form>
+</body>
+</html>

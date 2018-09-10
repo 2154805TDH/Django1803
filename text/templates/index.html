@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <div style="text-align: center">
+        <p>欢迎{{ userName|default:'游客1'}},</p>
+        <p>{% if not request.session.is_login%}<a href="{% url 'text:userLogin' %}">登录</a>{% else %}<a href="{% url 'text:userLogout'%}">退出登录</a>{% endif %}</p>
+        <p><a href="{% url 'text:userRegister'%}">注册</a></p>
+        <!--<p><a href="{% url 'text:userLogout'%}">退出登录</a> </p>-->
+
+    </div>
+</body>
+</html>

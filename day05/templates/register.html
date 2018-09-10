@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<form action="/myapp/register/" method="post" style="text-align: center">
+    {%csrf_token%}
+    <input type="text" placeholder="用户名" name="u_name">
+    <br>
+    <input type="password" placeholder="密码"  name="pwd">
+    <br>
+    <input type="password" placeholder="确认密码" name="confirm_pwd">
+    <br>
+    <input type="submit" value="注册">
+
+</form>
+</body>
+</html>

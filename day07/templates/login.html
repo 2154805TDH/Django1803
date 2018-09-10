@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+</head>
+<body>
+<form action="/myapp/mylogin" method="post" style="text-align: center">
+    {%csrf_token%}
+    <input type="text" name="u_name" placeholder="用户名或手机号或邮箱">
+    <br>
+    <input type="password" name="pwd" placeholder="密码">
+    <br>
+    <input type="text" placeholder="验证码" name="verify_code">
+    <img src="/myapp/get_image" alt="" id="code">
+    <br>
+    <input type="submit" value="登录">
+</form>
+<a href="/myapp/register">注册</a>
+</body>
+<script>
+    $('#code').click(function () {
+        console.log('执行');
+        $(this).attr('src', "/myapp/get_image" + Math.random());
+    })
+</script>
+</html>

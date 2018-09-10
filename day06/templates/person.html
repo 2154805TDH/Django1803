@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>换头像</title>
+    <style>
+        img {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    欢迎{{u_name}}
+<img src="{{icon}}" alt="">
+    <form action="/myapp/upload" enctype="multipart/form-data" method="post">
+        {%csrf_token%}
+        <input type="file" name="u_icon">
+        <input type="submit" value="上传">
+    </form>
+</body>
+</html>

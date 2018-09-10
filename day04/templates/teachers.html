@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>老师</title>
+</head>
+<body>
+    <ul>
+        {% for i in teachers %}
+            <li>{{i.name}}</li>
+            {{i.get_base_msg}}
+            {%empty%}
+            没了
+        {%endfor%}
+    </ul>
+    <ul>
+        {% for i in teachers %}
+            {% if i.id == 2 %}
+                <li style="color: yellow">{{i.name}}</li>
+            {%else%}
+                <li>{{i.name}}</li>
+            {% endif %}
+            {{i.get_base_msg}}
+        {%endfor%}
+    </ul>
+    {{teachers.0.get_base_msg}}
+    <ul>
+        {%for i in teachers%}
+            {%if forloop.counter0 == 0 %}
+                <li style="color: yellow">第{{forloop.counter}}条数据：{{i.get_base_msg}}</li>
+            {%else%}
+            <li>第{{forloop.counter}}条数据：{{i.get_base_msg}}</li>
+            {%endif%}
+        {%endfor%}
+    </ul>
+    {%ifequal teachers.1.id 2%}
+        等于
+    {%else%}
+        不等于
+    {%endifequal%}
+    <hr>
+    之前{{teachers.1.age}} 后来{{teachers.1.age|add:10}}
+    转大写{{teachers.2.name|upper}}
+
+    join{{teachers|join:','}}
+    {%for i in teachers%}
+    <a href="{% url 'myapp:get_teacher' i.id%}">1</a>
+    {%endfor%}
+
+</body>
+</html>
